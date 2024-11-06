@@ -1,4 +1,4 @@
-.filme_info {
+.filme-info {
   margin: 0 auto;
   margin-top: 18px;
   display: flex;
@@ -7,12 +7,12 @@
   padding: 0 8px;
 }
 
-.filme_info h1 {
+.filme-info h1 {
   font-size: 14px 0;
 
 }
 
-.filme_info img {
+.filme-info img {
   border-radius: 8px;
   width: 800px;
   max-width: 100%;
@@ -20,15 +20,15 @@
   object-fit: cover;
 }
 
-.filme_info h3 {
+.filme-info h3 {
   margin-top: 14px;
 }
 
-.filme_info span {
+.filme-info span {
   margin: 8px 0;
 }
 
-.area-buttons{
+.area-buttons button{
   margin-right: 12px;
   margin-top: 14px;
   margin-left: 0;

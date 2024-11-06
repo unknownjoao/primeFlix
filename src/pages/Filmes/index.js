@@ -26,6 +26,7 @@ function Filme() {
         .catch(() => {
           console.log("Erro ao carregar filme"); // Redirecionar para a página de erro aqui
           navigate("/", { replace: true }); // Redirecionar para a página de erro aqui
+          return;
         });
     }
     loadFilms();
@@ -34,8 +35,7 @@ function Filme() {
       // Executar a limpeza do useEffect aqui para evitar memory leaks
       // Por exemplo, cancelar requests assíncronas ou limpar estados
     };
-    // eslint-disable-next-line
-  }, []);
+  }, [navigate, id]);
 
   if (loading) {
     return (
@@ -59,7 +59,13 @@ function Filme() {
       <div className="area-buttons">
         <button>Salvar</button>
         <button>
-          <a href="google.com">Trailer</a>
+          <a
+            target="blank"
+            rel="external"
+            href={`https://youtube.com/results?search_query=${filme.title} Trailer`}
+          >
+            Trailer
+          </a>
         </button>
       </div>
     </div>
