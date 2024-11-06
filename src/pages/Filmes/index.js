@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import "./filme_info.css";
 
 function Filme() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [filme, setFilme] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -21,8 +24,8 @@ function Filme() {
           setLoading(false);
         })
         .catch(() => {
-          console.log("Erro ao carregar filme");
-          // Redirecionar para a página de erro aqui
+          console.log("Erro ao carregar filme"); // Redirecionar para a página de erro aqui
+          navigate("/", { replace: true }); // Redirecionar para a página de erro aqui
         });
     }
     loadFilms();
@@ -31,6 +34,7 @@ function Filme() {
       // Executar a limpeza do useEffect aqui para evitar memory leaks
       // Por exemplo, cancelar requests assíncronas ou limpar estados
     };
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {
@@ -52,6 +56,12 @@ function Filme() {
       <span>{filme.overview}</span>
 
       <strong>Avaliação: {filme.vote_average} / 10</strong>
+      <div className="area-buttons">
+        <button>Salvar</button>
+        <button>
+          <a href="google.com">Trailer</a>
+        </button>
+      </div>
     </div>
   );
 }
